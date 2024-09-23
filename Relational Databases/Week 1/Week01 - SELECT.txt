@@ -1,0 +1,6 @@
+
+
+TODO Change Select
+
+-- SELECT
+SELECT student.fullname AS STUDENT_NAME, module.modulename AS MODULE_NAME, module.credit AS NUMBER_CREDITS, lecturer.fullname AS LECTURER_NAME, department.departmentname AS DEPARTMENT_NAME FROM student, enrolment, module, department, modulelecturer, moduledepartment, lecturer WHERE enrolment.moduleID = module.moduleID AND student.studentID = enrolment.studentID AND department.departmentID = moduledepartment.departmentID AND moduledepartment.moduleID = module.moduleID AND lecturer.lecturerID = modulelecturer.lecturerID AND moduledepartment.moduleID = modulelecturer.moduleID;

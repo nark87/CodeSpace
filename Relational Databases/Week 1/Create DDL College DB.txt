@@ -1,0 +1,93 @@
+
+-- Create the student table
+CREATE TABLE student (
+  studentID VARCHAR(20) NOT NULL,
+  fullname VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  PRIMARY KEY (studentID)
+);
+
+-- Populate the student table with some sample data
+INSERT INTO student (studentID, fullname, email) VALUES
+  ('EC123', 'Fred Flintstone', 'fflintstone@college.ac.uk'),
+  ('EC234', 'Barney Rubble', 'brubble@college.ac.uk'),
+  ('EC345', 'Wilma Flintstone', 'wflintstone@college.ac.uk'),
+  ('EC456', 'Betty Rubble', 'berubble@college.ac.uk');
+
+-- Create the department table
+CREATE TABLE department (
+  departmentID VARCHAR(20) NOT NULL, 
+  departmentname VARCHAR(50) NOT NULL,
+  PRIMARY KEY (departmentID)
+);
+
+-- Populate the department table with some sample data
+INSERT INTO department (departmentID, departmentname) VALUES
+  ('DH100', 'Art and Design'),
+  ('DH200', 'Computing'),
+  ('DH300', 'Engineering'),
+  ('DH400', 'Science');
+
+-- Create the module table
+CREATE TABLE module (
+  moduleID VARCHAR(20) NOT NULL, 
+  modulename VARCHAR(50) NOT NULL,
+  departmentID VARCHAR(50) NOT NULL,
+  credit INT NOT NULL,
+  PRIMARY KEY (moduleID)
+);
+
+-- Populate the module table with some sample data
+INSERT INTO module (moduleID, modulename, credit) VALUES
+  ('EC101', 'Programming Fundamentals','DH100', 6),
+  ('EC201', 'Relational Databases', 'DH200',6),
+  ('EC301', 'Data Structures and Algorithms', 'DH300', 6),
+  ('EC401', 'Artificial Intelligence', 'DH400', 6);
+
+-- Create the enrolment table
+CREATE TABLE enrolment (
+  ID INT NOT NULL,
+  studentID VARCHAR(20) NOT NULL,
+  moduleID VARCHAR(20) NOT NULL, 
+  PRIMARY KEY (id)
+);
+
+-- Populate the enrolment table with some sample data
+INSERT INTO enrolment (id, studentID, moduleID) VALUES
+  (1, 'EC123', 'EC101'),
+  (2, 'EC123', 'EC201'),
+  (3, 'EC234', 'EC101'),
+  (4, 'EC345', 'EC301'),
+  (5, 'EC456', 'EC401'),
+  (6, 'EC456', 'EC201');
+-- Create the lecturer table
+CREATE TABLE lecturer (
+  lecturerID VARCHAR(20) NOT NULL,
+  fullname VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  departmentID VARCHAR(20) NOT NULL, 
+  PRIMARY KEY (lecturerID)
+);
+-- Populate the lecturers table with some sample data
+
+INSERT INTO lecturer (lecturerID, fullname, email, departmentID) VALUES. TODO Add department ID
+  ('EC987', 'Peter Parker', 'pparker@college.ac.uk','91DH100'),
+  ('EC876', 'Tony Stark', 'tstark@college.ac.uk','91DH200'),
+  ('EC765', 'Clark Kent', 'cklent@college.ac.uk','91DH300'),
+  ('EC654', 'Bruce Wayne', 'bwayne@college.ac.uk','91DH400');
+
+
+-- Create the module with lecturer table\
+CREATE TABLE modulelecturer (
+  ID INT NOT NULL,
+  moduleID VARCHAR(20) NOT NULL,
+  lecturerID VARCHAR(20) NOT NULL, 
+  PRIMARY KEY (id)
+);
+
+-- Populate the module department  table with some sample data\
+INSERT INTO modulelecturer (id, moduleID, lecturerID) VALUES\
+  (1, 'EC101', 'EC987'),
+  (2, 'EC201', 'EC876'),
+  (3, 'EC301', 'EC76'),
+  (4, 'EC401', 'EC654');

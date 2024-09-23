@@ -1,0 +1,101 @@
+
+-- Create the student table
+CREATE TABLE student (
+  studentID VARCHAR(20) NOT NULL,
+  fullName VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  PRIMARY KEY (studentID)
+);
+
+-- Populate the student table with some sample data
+INSERT INTO student (studentID, fullName, email) VALUES
+  ('EC123', 'Fred Flintstone', 'fflintstone@college.ac.uk'),
+  ('EC234', 'Barney Rubble', 'brubble@college.ac.uk'),
+  ('EC345', 'Wilma Flintstone', 'wflintstone@college.ac.uk'),
+  ('EC456', 'Betty Rubble', 'berubble@college.ac.uk');
+
+-- Create the department table
+CREATE TABLE department (
+  departmentID VARCHAR(20) NOT NULL, 
+  departmentName VARCHAR(50) NOT NULL,
+  PRIMARY KEY (departmentID)
+);
+
+-- Populate the department table with some sample data
+INSERT INTO department (departmentID, departmentName) VALUES
+  ('DH100', 'Art and Design'),
+  ('DH200', 'Computing'),
+  ('DH300', 'Engineering'),
+  ('DH400', 'Science');
+
+-- Create the module table
+CREATE TABLE module (
+  moduleID VARCHAR(20) NOT NULL, 
+  moduleName VARCHAR(100) NOT NULL,
+  moduleDescription VARCHAR(200),
+  credit INT NOT NULL,
+  PRIMARY KEY (moduleID)
+);
+
+-- Populate the module table with some sample data
+INSERT INTO module (moduleID, moduleName, moduleDescription, credit) VALUES
+  ('EC101', 'Programming Fundamentals', 'PF is a', 6),
+  ('EC201', 'Relational Databases', 'RD is a',6),
+  ('EC301', 'Data Structures and Algorithms', 'DSA is a', 6),
+  ('EC401', 'Artificial Intelligence', '', 6);
+
+-- Create the enrolment table
+CREATE TABLE enrolment (
+  enrolmentID VARCHAR(20) NOT NULL,
+  studentID VARCHAR(20) NOT NULL,
+  moduleID VARCHAR(20) NOT NULL, 
+  enrolmentDate DATE NOT NULL, 
+  PRIMARY KEY (enrolmentID),
+  FOREIGN KEY (studentID) REFERENCES student(studentID),
+  FOREIGN KEY (moduleID) REFERENCES module(moduleID)
+);
+
+-- Populate the enrolment table with some sample data
+INSERT INTO enrolment (enrolmentID, studentID, moduleID, enrolmentDate) VALUES
+  (1, 'EC123', 'EC101', '2024-09-12'),
+  (2, 'EC123', 'EC201', '2024-09-11'),
+  (3, 'EC234', 'EC101', '2024-09-12'),
+  (4, 'EC345', 'EC301', '2024-09-02'),
+  (5, 'EC456', 'EC401', '2024-09-07'),
+  (6, 'EC456', 'EC201', '2024-09-08');
+
+-- Create the lecturer table
+CREATE TABLE lecturer (
+  lecturerID VARCHAR(20) NOT NULL,
+  lecturerFullname VARCHAR(100) NOT NULL,
+  lecturerEmail VARCHAR(100) NOT NULL,
+  departmentID VARCHAR(20) NOT NULL, 
+  PRIMARY KEY (lecturerID),
+  FOREIGN KEY (departmentID) REFERENCES department(departmentID)
+);
+-- Populate the lecturers table with some sample data
+INSERT INTO lecturer (lecturerID, lecturerFullname, lecturerEmail, departmentID) VALUES
+  ('EC987', 'Peter Parker', 'pparker@college.ac.uk','DH100'),
+  ('EC876', 'Tony Stark', 'tstark@college.ac.uk','DH200'),
+  ('EC765', 'Clark Kent', 'cklent@college.ac.uk','DH300'),
+  ('EC654', 'Bruce Wayne', 'bwayne@college.ac.uk','DH400');
+
+
+-- Create the module with lecturer table
+CREATE TABLE lecturer_module (
+  lecturer_module_ID VARCHAR(20) NOT NULL,
+  moduleID VARCHAR(20) NOT NULL,
+  lecturerID VARCHAR(20) NOT NULL, 
+  year_of_delivery INT NOT NULL,
+  semester INT NOT NULL,
+  PRIMARY KEY (lecturer_module_ID),
+  FOREIGN KEY (moduleID) REFERENCES module(moduleID),
+  FOREIGN KEY (lecturerID) REFERENCES lecturer(lecturerID)
+);
+
+-- Populate the module lecturer table with some sample data
+INSERT INTO lecturer_module (lecturer_module_ID, moduleID, lecturerID, year_of_delivery, semester) VALUES
+  (1, 'EC101', 'EC987', 2024, 1),
+  (2, 'EC201', 'EC876', 2024, 1),
+  (3, 'EC301', 'EC765', 2024, 1),
+  (4, 'EC401', 'EC654', 2024, 1);
