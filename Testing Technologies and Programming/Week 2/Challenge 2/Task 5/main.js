@@ -24,7 +24,7 @@ Add to the class a method stateYourRole() and let it return the string "viewer".
 
 5. Create an object, viewer, from the Viewer class, set the username to "Melchior", and make it return the string "viewer". */
 
-// Abstract class representing a generic bank account
+// Abstract class representing a generic user
 class User {
    // Constructor with username initialisation and abstract instance check
    constructor() {
