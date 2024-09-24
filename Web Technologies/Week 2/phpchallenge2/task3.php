@@ -26,7 +26,7 @@ Multiplication table of 5:
 <h1>Task 3 - for Loop</h1><br>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <label> Introduce a number: <input type="text" name="numberloop"></label>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Calculate">
 </form>
 <br>
 

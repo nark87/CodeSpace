@@ -26,7 +26,7 @@ Requirements:
         <option value="multiplying">'*' - Multiplying</option>
         <option value="dividing">'/' - Dividing</option>
     </select>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Calculate">
 </form>
 <br><br>
 
@@ -74,7 +74,6 @@ if (is_numeric($num1))
         echo "<label>Please, introduce a correct number.</label><br><br>";
     }
     
-
 } else {
     // Output
     echo "<label>Please, introduce a correct number.</label><br><br>";
