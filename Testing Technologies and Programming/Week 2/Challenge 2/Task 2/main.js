@@ -16,11 +16,11 @@ My name is firstName lastSurname */
 
 class User {
    // Constructor
-   constructor (firstName, lastName) {
+   constructor () {
  
-      // Attributes 
-      //this._firstName = firstName;
-      //this._lastName = lastName;
+      // Initialise Attributes empties
+      this._firstName = "";
+      this._lastName = "";
    }
  
     // Get first name
@@ -46,14 +46,18 @@ class User {
    }
  
    // Method
-   hello2() {
-      console.log('Hello World!');
+   hello() {
+      console.log("Hello World!");
    }
 }
- 
-//const user = new User('John', 'Doe');
+
+// Create user instance
 const user = new User();
-user.firstName = 'Narcis';
-user.lastName = 'Girones';
-user.hello2();
-console.log('My name is', user.firstName, user.lastName)
+
+// Use setters
+user.firstName = "Narcis";
+user.lastName = "Girones";
+
+// Use getters
+user.hello();
+console.log("My name is", user.firstName, user.lastName);

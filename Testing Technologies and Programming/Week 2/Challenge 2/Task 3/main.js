@@ -21,7 +21,8 @@
 class User {
    // Constructor for User class, takes 'username' as a parameter
    constructor() {
-
+      // Initialise Atributes
+      this._userName = "";
    }
    get userName() {
       return this._userName;
@@ -30,20 +31,29 @@ class User {
       // Set Attribute Username
       this._userName = userName;
    }
- }
+}
  
- // Define a class named Dog that extends Animal
- class Admin extends User {
+// Define a class named Admin extends from User
+class Admin extends User {
+
+   // Class constructor
+   constructor() {
+      // Call the super Class constructor
+      super();
+   }
 
    // Methods
+   // Express your role
    expressYourRole() {
       return "Admin";
    }
+
+   // Say hello to the username
    sayHello() {
       console.log(`Hello admin, ${this.userName}`);
    }
- }
+}
 
-const admin = new Admin();
-admin.userName = "Balthazar";
-admin.sayHello();
+const admin = new Admin(); // Create admin instance
+admin.userName = "Balthazar"; // Set username
+admin.sayHello(); // Say hello to the user

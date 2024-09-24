@@ -37,61 +37,60 @@ that the editor gained.*/
 
 class User {
    constructor() {
-     this.numberOfArticles = 0;
+      // Initialise Attribute number of Articles with value of "0"
+     this._numberOfArticles = 0;
    }
 
    // Method Set Number of Articles
-   setNumberOfArticles(numberOfArticles) {
-      this.numberOfArticles = numberOfArticles;
+   set numberOfArticles(numberOfArticles) {
+      this._numberOfArticles = numberOfArticles;
    }
 
    // Method Get Number of Articles
-   getNumberOfArticles() {
-      return this.numberOfArticles;
+   get numberOfArticles() {
+      return this._numberOfArticles;
    }  
 
    // Methods
    calcScores() {
-
+      throw new Error("Method 'calcScore()' must be implemented in subclasses")
    }
- }
+}
 
- class Author extends User {
+// Class Author
+class Author extends User {
 
    // Constructor for Author class, taking a 'number of articles' parameter.
-   constructor(numberOfArticles) {
+   constructor() {
       // Call the constructor of the user class (User) using super().
       super();
-      // Set the number of articles property of the author instance.
-      this.numberOfArticles = numberOfArticles;
    }
 
    //Override Method Calculate Scores
    calcScores() {
       return (this.numberOfArticles * 10) + 20;
    }
- }
+}
 
- class Editor extends User {
+// Class Editor
+class Editor extends User {
 
    // Constructor for Author class, taking a 'number of articles' parameter.
-   constructor(numberOfArticles) {
+   constructor() {
       // Call the constructor of the user class (User) using super().
       super();
-      // Set the number of articles property of the author instance.
-      this.numberOfArticles = numberOfArticles;
    }
 
    //Override Methods Calculate Scores
    calcScores() {
       return (this.numberOfArticles * 6) + 15;
    }
- }
+}
 
-const author = new Author();
-const editor = new Editor();
-author.setNumberOfArticles(8);
-editor.setNumberOfArticles(15);
-console.log("Author gained:", author.calcScores());
-console.log("Editor gained:", editor.calcScores());
+const author = new Author(); // Create an Author instance
+const editor = new Editor(); // Create an Editor instance
+author.numberOfArticles(8); // Set number of articles of Author
+editor.numberOfArticles(15); // Set number of articles of Editor
+console.log("Author's scores:", author.calcScores());
+console.log("Editor's scores:", editor.calcScores());
 

@@ -30,20 +30,23 @@ class User {
    // Constructor
    constructor (firstName, lastName) {
 
-      // Attributes 
+      // Initialise Attributes 
       this._firstName = firstName;
       this._lastName = lastName;
    }
 
-   // Method
+   // Method to say hello
    hello() {
       console.log(`Hello, ${this._firstName} ${this._lastName}`);
    }
 }
 
-const user1 = new User('John', 'Doe');
-console.log('First Name:', user1._firstName);
-console.log('Last Name:', user1._lastName);
+// Create the first user instance
+const user1 = new User("John", "Doe");
+console.log("First Name:", user1._firstName);
+console.log("Last Name:", user1._lastName);
 user1.hello(); 
-const user2 = new User('Jane', 'Doe');
+
+// Create the second user instance
+const user2 = new User("Jane", "Doe");
 user2.hello();
