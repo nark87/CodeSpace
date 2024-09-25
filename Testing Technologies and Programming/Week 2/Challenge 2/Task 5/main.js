@@ -19,28 +19,29 @@ Add to the class a method stateYourRole() and let it return the string "viewer".
 class User {
    // Constructor with username initialisation and abstract instance check
    constructor() {
-     // Check if an attempt is made to instantiate the abstract class directly
-     if (this.constructor === User) {
-       throw new TypeError("Cannot construct Abstract instances directly.");
-     }
+      // Check if an attempt is made to instantiate the abstract class directly
+      if (this.constructor === User) {
+         throw new TypeError("Cannot construct Abstract instances directly.");
+      }
+      // Initialise the username
+      this._userName = "";
    }
 
-   // Abstract method Set username
+   // Set username
    set userName(userName) {
-      // Throw an error if the abstract method is called directly from a child class
-      throw new TypeError("Do not call abstract method set userNzme from child.");
+      // Set the username
+      this._userName = userName;
    }
 
-   // Abstract method Get username
+   // Get username
    get userName() {
-      // Throw an error if the abstract method is called directly from a child class
-      throw new TypeError("Do not call abstract method get userNzme from child.");
+      return this._userName;
    }  
  
    // Abstract method for state your role
    stateYourRole() {
-     // Throw an error if the abstract method is called directly from a child class
-     throw new TypeError("Do not call abstract method stateYourRole() from child.");
+      // Throw an error if the abstract method is called directly from a child class
+      throw new TypeError("Do not call abstract method stateYourRole() from child.");
    }
  }
 
@@ -49,21 +50,7 @@ class User {
    constructor() {
       // Call the parent class constructor
       super();
-      // Initialise the username
-      this._userName = "";
    }
-
-   // Override abstract method Set username
-   set userName(userName) {
-      // Set Attribute username
-      this._userName = userName;
-   }
-
-   // Override abstract method Get username
-   get userName() {
-      // Return username
-      return this._userName;
-   }  
 
    // Override method state tour role
    stateYourRole() {
@@ -77,23 +64,9 @@ class User {
    constructor() {
       // Call the parent class constructor
       super();
-      // Initialise the username
-      this._userName = "";
    }
 
-   // Override abstract method Set username
-   set userName(userName) {
-      // Initialise the username
-      this._userName = userName;
-   }
-
-   // Override abstract method Get username
-   get userName() {
-      // Return username
-      return this._userName;
-   } 
-
-   // Override method state tour role
+   // Override method state your role
    stateYourRole() {
       // Return this string
       return "viewer";
