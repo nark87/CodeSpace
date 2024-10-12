@@ -1,0 +1,99 @@
+<!--
+The Winning Rules are as follows:
+
+Rock smashes Scissors.
+Paper covers Rock.
+Scissors cut Paper.
+Key concepts for this challenge exercise: 
+
+Variables and/or constants. 
+Control flow (if statements). 
+Event listeners. 
+Functions. 
+The DOM: 
+document.getElementById. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=#, initial-scale=1.0">
+        <title>Vanilla JS - Rock Paper Scissors Challenge</title>
+        <style>
+            .options {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Buttons -->
+        <div class="options">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <br>
+        <!-- Info -->
+        <h2 id="u-option"> Your Option: <span id="user-option"></span></h2>
+        <h2 id="c-option">Computer Option: <span id="computer-option"></span></h2>
+        <h2 id="r-game">Result: <span id="result"></span></h2>
+
+        <!-- Scripts -->
+        <script>
+            // Get the button id into a variable
+            const rockBtn = document.getElementById("rock");
+            const paperkBtn = document.getElementById("paper");
+            const scissorsBtn = document.getElementById("scissors");
+
+            //Get the spans
+            const userOptionSpan = document.getElementById("user-option");
+            const computerOptionSpan = document.getElementById("computer-option");
+            const resultSpan = document.getElementById("result");
+
+            // Define the options. The array starts with the index 0
+            const options = ["Rock", "Paper", "Scissors"];
+
+            // Define the results. The array starts with the index 0
+            const results = ["You won!", "You lose!", "It's a tie!"];
+
+            // Add click event to the buttons - User interaction
+            rockBtn.addEventListener("click",function(){
+                playGame(options[0]);
+            });
+
+            paperkBtn.addEventListener("click",function(){
+                playGame(options[1]);
+            });
+
+            scissorsBtn.addEventListener("click",function(){
+                playGame(options[2]);
+            });
+
+            // Play the game function
+            function playGame(userOption){
+                // Get the random computer option
+                const computerOption = options[Math.floor(Math.random() * options.length)];
+
+                // Set the user opetion
+                userOptionSpan.innerHTML = userOption;
+
+                // Set the computer option
+                computerOptionSpan.innerHTML = computerOption;
+
+                // Compare the results between user and computer
+                if (userOption === computerOption) {  // A draw
+                    resultSpan.innerHTML = results[2];
+
+                } else if ((userOption === "Rock" && computerOption === "Scissors") 
+                        ||(userOption === "Scissors" && computerOption === "Paper") 
+                        || (userOption === "Paper" && computerOption === "Rock")) { // When the user wins
+                    resultSpan.innerHTML = results[0];
+
+                } else { // When the user loses
+                    resultSpan.innerHTML = results[1];
+                }       
+            }
+        </script>
+    </body>
+</html>
