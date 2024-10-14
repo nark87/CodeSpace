@@ -1,0 +1,60 @@
+<!--
+SECRET NUMBER GAME
+
+* Generates a random number
+* Takes in a guess
+* Returns a string with the guess and whether that guess is lower or higher 
+    than the random number. E.g. "You answered 9. The correct answer is higher."
+
+* If the guess matches the random number, then return a string which confirms this
+    E.g. "You answered 9. This is the correct answer!"
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=#, initial-scale=1.0">
+        <title>Code Challenge 4 - Secret Number</title>
+        <style>
+            .options {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Info -->
+        <h1>Welcome to the Secret Number Game</h2>
+        <div id="infoGame">
+            <h2 id="selectInfo">Select the level of the game</h2>
+
+            <!-- Buttons for select the level of the game -->
+            <button id="easy">Easy</button>
+            <button id="medium">Medium</button>
+            <button id="expert">Expert</button>
+        </div>
+        <div id="contentGame">
+            <h3><span id="optionLevel"></span></h3>
+
+            <label id="userInput">Guess the secret number between <span id="chancesLevel"></span> : <input id="myInput" type="text" inputmode="numeric" placeholder="Introduce a number">
+            </label>
+            <button id="go">Go</button>
+            <label><span id="chancesLeft"></span> chances left!</label>
+            <label display="none"><span id="random"></span></label>
+        </div>
+        <label><span id="random"></span></label>
+        <div>
+            <label display="block"><span id="result"></span></label>
+        </div>
+        <div id="endGame">
+            <h4><span id="resultGame"></span></h4>
+            <label id="questions">Would you like to play again?</label>
+            </label>
+            <button id="play">Play again</button>
+        </div>
+
+        <!-- Scripts -->
+        <script src="scripts.js"></script>
+
+    </body>
+</html>
