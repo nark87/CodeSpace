@@ -1,0 +1,56 @@
+<!--
+Higher/Lower Game:
+- Generates a random number.
+- Takes in a guess.
+- Returns a string with the guess and whether that guess is lower or higher than the random number. 
+    E.g., You answered 9. The correct answer is higher.
+- If the guess matches the random number, then return a string which confirms this. 
+    E.g., You answered 9. This is the correct answer!
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=#, initial-scale=1.0">
+        <title>Higher/Lower Game</title>
+    </head>
+    <body>
+        <!-- Welcoming to the game -->
+        <h1>Welcome to the Higher/Lower Game</h2>
+        <div id="infoGame">
+            <h2 id="selectInfo">Select the level of the game</h2>
+
+            <!-- Buttons for selecting the level of the game -->
+            <button id="easy">Easy</button> <!-- Only the easy level works-->
+            <button id="medium">Medium</button>
+            <button id="expert">Expert</button>
+        </div>
+        <!-- Game User Interface-->
+        <div id="contentGame">
+            <h3><span id="optionLevel"></span></h3> <!-- Appears which level the user has selected-->
+            <!-- Input where user introduce his guess number-->
+            <label id="userInput">Guess the secret number between <span id="chancesLevel"></span> : 
+                <input id="myInput" type="text" inputmode="numeric" placeholder="Introduce a number"> 
+            </label>
+            <button id="go">Go</button> <!--Button to play the guess number-->
+            <!--Label where appears the chances left to finish the game-->
+            <label><span id="chancesLeft"></span> chances left!</label> 
+        </div>
+        <!--Label where appears the result of each user's guess-->
+        <div>
+            <label display="block"><span id="result"></span></label>
+        </div>
+        <!--Game Finish Interface. Play again!-->
+        <div id="endGame">
+            <!--Shows the result of the game. If the user won or lose-->
+            <h4><span id="resultGame"></span></h4>
+            <!--Question to the user if the user want to play again-->
+            <label id="questions">Would you like to play again?</label>
+            </label>
+            <button id="play">Play again</button><!--Button to play again-->
+        </div>
+
+        <!-- Scripts -->
+        <script src="scripts.js"></script>
+    </body>
+</html>
