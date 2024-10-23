@@ -197,7 +197,7 @@ function selectGame(info, chance, range, max) {
     // Set the chances and secret number into the instance myGame
     myGame.chances = chance;
     myGame._secretNumber = randomInteger(1, max);
-    randomNum.innerHTML = myGame.secretNumber;
+    //randomNum.innerHTML = myGame.secretNumber;
 }
 
 // Function - Random number between 2 numbers included
